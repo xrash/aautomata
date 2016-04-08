@@ -1,9 +1,9 @@
 package tests
 
 import (
-	"testing"
-	"strconv"
 	"github.com/xrash/aautomata"
+	"strconv"
+	"testing"
 )
 
 func Test0n1n(t *testing.T) {

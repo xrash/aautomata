@@ -1,8 +1,8 @@
 package tests
 
 import (
-	"testing"
 	"github.com/xrash/aautomata"
+	"testing"
 )
 
 type testcase struct {

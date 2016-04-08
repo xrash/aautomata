@@ -15,20 +15,20 @@ func TestThird(t *testing.T) {
 		first := func(aa *aautomata.AdaptiveAutomata) {
 			aa.AddTransition("1", " ", "1", nil, nil)
 
-			for _, s := range(D) {
+			for _, s := range D {
 				aa.AddTransition("1", s, "1a", nil, nil)
 				aa.AddTransition("1a", s, "1a", nil, nil)
 			}
 
-			for _, s := range(LUS) {
+			for _, s := range LUS {
 				aa.AddTransition("1a", s, "1b", nil, nil)
 			}
 
-			for _, s := range(S) {
+			for _, s := range S {
 				aa.AddTransition("1", s, "z", nil, nil)
 			}
 
-			for _, s := range(L) {
+			for _, s := range L {
 				func(s string) {
 					t := func(aa *aautomata.AdaptiveAutomata) {
 						aa.Push(s)
@@ -42,7 +42,7 @@ func TestThird(t *testing.T) {
 		// Extract token 'int'
 		// Extract token 'real'
 		second := func(aa *aautomata.AdaptiveAutomata) {
-			for _, s := range(L) {
+			for _, s := range L {
 				if (s == "i") || (s == "r") {
 					continue
 				}
@@ -53,11 +53,11 @@ func TestThird(t *testing.T) {
 			aa.AddTransition("2", "i", "2b", nil, nil)
 			aa.AddTransition("2b", "n", "2e", nil, nil)
 			aa.AddTransition("2e", "t", "2h", nil, nil)
-			for _, s := range(S) {
+			for _, s := range S {
 				aa.AddTransition("2h", s, "2k", nil, nil)
 			}
 
-			for _, s := range(A) {
+			for _, s := range A {
 				if s == "n" {
 					continue
 				}
@@ -71,7 +71,7 @@ func TestThird(t *testing.T) {
 				}(s)
 			}
 
-			for _, s := range(A) {
+			for _, s := range A {
 				if s == "t" {
 					continue
 				}
@@ -86,7 +86,7 @@ func TestThird(t *testing.T) {
 				}(s)
 			}
 
-			for _, s := range(LUD) {
+			for _, s := range LUD {
 				func(s string) {
 					t := func(aa *aautomata.AdaptiveAutomata) {
 						aa.Push(s)
@@ -106,7 +106,7 @@ func TestThird(t *testing.T) {
 			var B func(*aautomata.AdaptiveAutomata, string, string)
 
 			D = func(aa *aautomata.AdaptiveAutomata, i string) {
-				for _, s := range(S) {
+				for _, s := range S {
 					func(s string) {
 						aa.RemoveTransition(i, s)
 						aa.AddTransition(i, s, "9", nil, nil)
@@ -124,7 +124,7 @@ func TestThird(t *testing.T) {
 				aa.RemoveTransition(i, o)
 				aa.AddTransition(i, o, j, nil, nil)
 
-				for _, s := range(LUD) {
+				for _, s := range LUD {
 					func(s string) {
 						b := func(aa *aautomata.AdaptiveAutomata) {
 							B(aa, j, s)
@@ -133,7 +133,7 @@ func TestThird(t *testing.T) {
 					}(s)
 				}
 
-				for _, s := range(S) {
+				for _, s := range S {
 					func(s string) {
 						aa.AddTransition(j, s, "8", nil, d)
 					}(s)
@@ -142,7 +142,7 @@ func TestThird(t *testing.T) {
 				J++
 			}
 
-			for _, s := range(L) {
+			for _, s := range L {
 				func(s string) {
 					b := func(aa *aautomata.AdaptiveAutomata) {
 						B(aa, "3", s)
@@ -152,7 +152,7 @@ func TestThird(t *testing.T) {
 				}(s)
 			}
 
-			for _, s := range(S) {
+			for _, s := range S {
 				func(s string) {
 					d := func(aa *aautomata.AdaptiveAutomata) {
 						D(aa, "3a")

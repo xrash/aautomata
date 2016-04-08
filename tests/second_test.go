@@ -28,7 +28,7 @@ func TestSecond(t *testing.T) {
 			aa.RemoveTransition(i, o)
 			aa.AddTransition(i, o, j, nil, nil)
 
-			for _, s := range(LUD) {
+			for _, s := range LUD {
 				func(s string) {
 					b := func(aa *aautomata.AdaptiveAutomata) {
 						B(aa, j, s)
