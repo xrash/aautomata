@@ -5,11 +5,11 @@ import (
 )
 
 type transition struct {
-	from string
-	input string
-	to string
+	from   string
+	input  string
+	to     string
 	before func(*AdaptiveAutomata)
-	after func(*AdaptiveAutomata)
+	after  func(*AdaptiveAutomata)
 }
 
 func newTransition(from, input, to string, b func(*AdaptiveAutomata), a func(*AdaptiveAutomata)) *transition {
@@ -49,7 +49,7 @@ func (c *transitionCollection) Add(t *transition) {
 		c.table[t.from] = make(map[string]*transition)
 	}
 
-	c.table[t.from][t.input] = t;
+	c.table[t.from][t.input] = t
 }
 
 func (c *transitionCollection) Remove(from, input string) {
@@ -73,8 +73,8 @@ func (c *transitionCollection) Find(state, input string) *transition {
 }
 
 func (c *transitionCollection) Print() {
-	for _, from := range(c.table) {
-		for _, trans := range(from) {
+	for _, from := range c.table {
+		for _, trans := range from {
 			fmt.Println(trans.from, trans.input, trans.to, trans.before, trans.after)
 		}
 	}

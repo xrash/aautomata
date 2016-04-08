@@ -26,10 +26,10 @@ func (d debug) printf(s string, i ...interface{}) {
 }
 
 type AdaptiveAutomata struct {
-	scanner *scanner
+	scanner     *scanner
 	transitions *transitionCollection
-	state string
-	final map[string]bool
+	state       string
+	final       map[string]bool
 }
 
 func NewAdaptiveAutomata() *AdaptiveAutomata {
@@ -56,7 +56,7 @@ func (aa *AdaptiveAutomata) SetState(s string) {
 func (aa *AdaptiveAutomata) SetFinalStates(s ...string) {
 	aa.final = make(map[string]bool)
 
-	for _, state := range(s) {
+	for _, state := range s {
 		aa.final[state] = true
 	}
 }
@@ -118,4 +118,3 @@ func (aa *AdaptiveAutomata) Push(s string) {
 func (aa *AdaptiveAutomata) Print() {
 	aa.transitions.Print()
 }
-

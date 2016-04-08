@@ -11,7 +11,7 @@ func (s *stack) push(i string) {
 }
 
 func (s *stack) pop() string {
-	l := len(*s)-1
+	l := len(*s) - 1
 	st := (*s)[l]
 	*s = (*s)[:l]
 	return st

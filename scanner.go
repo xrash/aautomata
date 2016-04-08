@@ -7,8 +7,8 @@ import (
 
 type scanner struct {
 	scanner *bufio.Scanner
-	stack stack
-	text *string
+	stack   stack
+	text    *string
 }
 
 func newScanner() *scanner {
@@ -26,7 +26,7 @@ func (s *scanner) Init(r io.Reader) {
 
 func (s *scanner) Scan() bool {
 	if !s.stack.empty() {
-		tmp := s.stack.pop();
+		tmp := s.stack.pop()
 		s.text = &tmp
 		return true
 	}
